@@ -16,7 +16,7 @@ use std::ptr;
 #[cfg(windows)]
 use pdcurses as curses;
 #[cfg(windows)]
-pub use pdcurses::{chtype, mmask_t, MEVENT, SCREEN};
+pub use pdcurses::{chtype, mmask_t, MEVENT, SCREEN, LINES, COLS};
 #[cfg(windows)]
 type ScrPtr = *mut SCREEN;
 #[cfg(windows)]
