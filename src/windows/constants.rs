@@ -3,7 +3,12 @@ use pdcurses::chtype;
 use pdcurses::mmask_t;
 
 pub fn COLOR_PAIR(n: chtype) -> chtype {
-    (n << PDC_COLOR_SHIFT) & A_COLOR
+    // Rasmus: it seems like the wmcbrine version of pdcurses might be using a
+    // different definition of the COLOR_PAIR macro than what is used in the
+    // pdcurses fork pancurses uses.
+    // I've hardcoded the expansion of the wmcbrine pdcurses COLOR_PAIR macro
+    // as the new function expression here.
+    (n << 24) & 0xff000000
 }
 
 pub const COLOR_BLACK: i16 = 0;
